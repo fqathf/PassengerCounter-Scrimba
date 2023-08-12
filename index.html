@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>People entered:</h1>
@@ -13,6 +13,24 @@
         <button id="increment-btn" onclick="increment()">INCREMENT</button>
         <button id="save-btn" onclick="save()">SAVE</button>
         <p id="save-el">Previous entries: </p>
-        <script src="script/script.js" type="module"></script>
+        <script>
+            let count = 0;
+            let saveEl = document.getElementById("save-el");
+            let countEl = document.getElementById("count-el");
+
+            function increment() {
+                count += 1;
+                countEl.textContent = count;
+            }
+
+            function save() {
+                let countStr = count + " - ";
+                saveEl.textContent += countStr;
+                countEl.textContent = 0;
+                count = 0;
+            }
+
+            console.log("Let's count people on the subway!")
+        </script>
 </body>
 </html>
